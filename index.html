@@ -3,121 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Radio</title>
+    <title>Apex Radio | 24/7 Afro & Deep House</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-navy: #0a0f1d;
-            --card-navy: #111a33;
+            --bg-navy: #070b19;
+            --card-navy: #0e1730;
             --gold: #d4af37;
             --gold-light: #f3e5ab;
-            --gold-glow: rgba(212, 175, 55, 0.6);
+            --gold-glow: rgba(212, 175, 55, 0.4);
         }
+
+        * { box-sizing: border-box; }
 
         body {
             margin: 0;
-            padding: 0;
-            background-color: var(--bg-navy);
+            padding: 20px;
+            background: radial-gradient(circle at center, #111e38 0%, var(--bg-navy) 100%);
             color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             overflow-x: hidden;
+            position: relative;
         }
 
-        .container {
-            background-color: var(--card-navy);
+        /* Dodajemo pozadinski "wow" sjaj i efekte da ne bude prazno oko kartice */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.07) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .main-container {
+            position: relative;
+            z-index: 1;
+            background: var(--card-navy);
             border: 2px solid var(--gold);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 0 25px rgba(10, 15, 29, 0.8), inset 0 0 15px rgba(212, 175, 55, 0.15);
+            border-radius: 28px;
+            padding: 40px 35px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.25), inset 0 0 20px rgba(212, 175, 55, 0.1);
             text-align: center;
-            max-width: 450px;
-            width: 90%;
+            max-width: 480px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            transition: all 0.4s ease;
+        }
+
+        .main-container:hover {
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 45px rgba(212, 175, 55, 0.45), inset 0 0 25px rgba(212, 175, 55, 0.2);
+            border-color: var(--gold-light);
+        }
+
+        .station-title {
+            color: var(--gold);
+            margin: 0;
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px var(--gold-glow);
+        }
+
+        .genres {
+            color: #b3c0ed;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: -12px;
+            opacity: 0.9;
+        }
+
+        /* Okvir za logo da sija */
+        .logo-wrapper {
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .logo-img {
+            width: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .logo-wrapper:hover .logo-img {
+            transform: scale(1.03);
+        }
+
+        /* Plejer sekcija sa zlatnim sjajem na dodir/klik */
+        .player-box {
+            background: rgba(7, 11, 25, 0.6);
+            border-radius: 14px;
+            padding: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            justify-content: center;
             transition: all 0.3s ease;
         }
 
-        h1 {
-            color: var(--gold);
-            margin-bottom: 10px;
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px var(--gold-glow);
-        }
-
-        p {
-            color: #b0c4de;
-            margin-bottom: 30px;
-            font-size: 1rem;
-        }
-
-        /* Stilizovanje plejera i interaktivnih elemenata sa zlatnim sjajem na klik */
-        .cstrEmbed, button, a {
-            transition: all 0.2s ease-in-out;
-        }
-
-        .cstrEmbed:active, button:active, a:active {
-            transform: scale(0.97);
-            box-shadow: 0 0 20px var(--gold), 0 0 40px var(--gold) !important;
-        }
-
-        /* Plejer kontejner */
-        .player-box {
-            margin: 20px 0;
-            padding: 15px;
-            background: rgba(10, 15, 29, 0.6);
-            border-radius: 10px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        }
-
         .player-box:hover {
-            box-shadow: 0 0 15px var(--gold-glow);
             border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
 
-        /* Linkovi ka Caster.fm u diskretnoj zlatnoj boji */
-        .footer-links {
-            margin-top: 20px;
-            font-size: 0.8rem;
+        .cstrEmbed {
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
-        .footer-links a {
+        /* Efekat sijanja na klik (active) */
+        .cstrEmbed:active, .main-container:active {
+            box-shadow: 0 0 35px var(--gold), 0 0 60px var(--gold) !important;
+        }
+
+        .cstrEmbed a {
             color: var(--gold);
+            font-size: 10px;
+            opacity: 0.4;
             text-decoration: none;
-            opacity: 0.7;
-            margin: 0 5px;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            text-shadow: 0 0 8px var(--gold);
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>APEX RADIO</h1>
-        <p>Urban, Deep House & Afro House Beats</p>
+    <div class="main-container">
+        <div>
+            <h1 class="station-title">APEX RADIO</h1>
+            <div class="genres">Afro &bull; Deep House &bull; Nu-Disco</div>
+        </div>
 
+        <!-- Tvoj logo sa efektima -->
+        <div class="logo-wrapper">
+            <img src="logo.jpg" alt="Apex Radio Logo" class="logo-img">
+        </div>
+
+        <!-- Tvoj Caster plejer ubačen pod konac -->
         <div class="player-box">
-            <!-- Tvoj Caster.fm plejer kod -->
             <div data-type="newStreamPlayer" data-publicToken="3f0416fb-134e-4006-9b12-7945caca4eeb" data-theme="dark" data-color="e81e4d" data-channelId="" data-rendered="false" class="cstrEmbed">
                 <a href="https://www.caster.fm">Shoutcast Hosting</a> 
                 <a href="https://www.caster.fm">Stream Hosting</a> 
                 <a href="https://www.caster.fm">Radio Server Hosting</a>
             </div>
-        </div>
-
-        <div class="footer-links">
-            <a href="https://www.caster.fm" target="_blank">Shoutcast Hosting</a>
+            <script src="//cdn.cloud.caster.fm//widgets/embed.js"></script>
         </div>
     </div>
 
-    <!-- Skripta za Caster.fm plejer -->
-    <script src="//cdn.cloud.caster.fm//widgets/embed.js"></script>
 </body>
 </html>
