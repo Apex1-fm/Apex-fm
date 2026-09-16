@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Radio | 24/7 Afro & Deep House</title>
+    <title>Apex Radio | 24/7 Live Stream</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; }
@@ -22,7 +22,7 @@
             position: relative;
         }
 
-        /* Pozadinski svetlosni ambijent i zvezdice da popune prostor okolo */
+        /* Pozadinski svetlosni ambijent i zvezdice */
         body::before {
             content: '';
             position: fixed;
@@ -44,9 +44,7 @@
                 radial-gradient(1.5px 1.5px at 350px 300px, #d4af37, transparent),
                 radial-gradient(2px 2px at 500px 100px, #f3e5ab, transparent),
                 radial-gradient(2px 2px at 700px 250px, #ffffff, transparent),
-                radial-gradient(2.5px 2.5px at 850px 450px, #d4af37, transparent),
-                radial-gradient(2px 2px at 150px 550px, #ffffff, transparent),
-                radial-gradient(2px 2.5px at 400px 600px, #f3e5ab, transparent);
+                radial-gradient(2.5px 2.5px at 850px 450px, #d4af37, transparent);
             background-repeat: repeat;
             background-size: 600px 600px;
             opacity: 0.5;
@@ -54,7 +52,7 @@
             pointer-events: none;
         }
 
-        /* Glavna luksuzna kartica sa dvostrukim graviranim zlatnim okvirom */
+        /* Glavna kartica sa luksuznim unutrašnjim zlatnim ramom */
         .main-container {
             position: relative;
             z-index: 1;
@@ -73,7 +71,7 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 22px;
+            gap: 24px;
             transition: all 0.4s ease;
         }
 
@@ -105,43 +103,52 @@
             text-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
         }
 
-        .genres {
+        /* Dekorativna linija umesto žanrova */
+        .station-subtitle {
             color: #b3c0ed;
             font-size: 0.85rem;
-            letter-spacing: 3.5px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             font-weight: 600;
-            margin-top: -8px;
+            margin-top: -6px;
             opacity: 0.9;
         }
 
-        /* Okvir za tvoj logo koji sija na dodir mišem */
-        .logo-wrapper {
-            position: relative;
+        /* Kutija sa zlatnim ornamentima i izabranim opisom */
+        .ornament-box {
+            background: rgba(5, 10, 24, 0.85);
             border-radius: 18px;
-            overflow: hidden;
-            border: 2px solid #d4af37;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), inset 0 0 15px rgba(212, 175, 55, 0.2);
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 24px 20px;
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25), inset 0 0 15px rgba(212, 175, 55, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.4s ease;
         }
 
-        .logo-wrapper:hover {
-            transform: scale(1.03);
+        .ornament-box:hover {
+            transform: scale(1.02);
             border-color: #f3e5ab;
-            box-shadow: 0 0 50px rgba(212, 175, 55, 0.9), inset 0 0 30px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 45px rgba(212, 175, 55, 0.5), inset 0 0 25px rgba(212, 175, 55, 0.25);
         }
 
-        .logo-img {
-            width: 100%;
-            max-height: 290px;
-            object-fit: cover;
-            display: block;
-            transition: filter 0.4s ease;
+        .gold-vines {
+            color: #d4af37;
+            font-size: 1.3rem;
+            letter-spacing: 6px;
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.8);
+            font-weight: bold;
         }
 
-        .logo-wrapper:hover .logo-img {
-            filter: contrast(115%) brightness(105%);
+        .ornament-text {
+            color: #cfd8ef;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+            letter-spacing: 0.5px;
+            font-weight: 400;
         }
 
         /* Plejer sekcija na dnu */
@@ -182,14 +189,17 @@
     <div class="main-container">
         <div>
             <h1 class="station-title">APEX RADIO</h1>
-            <div class="genres">Afro House &bull; Deep House &bull; Nu-Disco</div>
+            <div class="station-subtitle">24 / 7 Live Stream</div>
         </div>
 
-        <!-- Tvoj logo sa slike ugrađen direktno da se odmah vidi -->
-        <div class="logo-wrapper">
-            <img src="https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?q=80&w=1000&auto=format&fit=crop" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect width=\'100%\' height=\'100%\' fill=\'%230b132b\'/><text x=\'50%\' y=\'50%\' fill=\'%23d4af37\' font-family=\'Poppins\' font-size=\'20\' text-anchor=\'middle\' dominant-baseline=\'middle\'>APEX RADIO</text></svg>'" alt="Apex Radio Logo" class="logo-img" id="logoPic">
+        <!-- Kutija sa listovima i izabranim opisom -->
+        <div class="ornament-box">
+            <div class="gold-vines">❧ ✦ 🌿 ✦ ❧</div>
+            <p class="ornament-text">Ekskluzivna frekvencija stvorena za prave hedoniste i poznavaoce vrhunskog stila.</p>
+            <div class="gold-vines">❧ ✦ 🌿 ✦ ❧</div>
         </div>
 
+        <!-- Plejer sekcija -->
         <div class="player-box">
             <div data-type="newStreamPlayer" data-publicToken="3f0416fb-134e-4006-9b12-7945caca4eeb" data-theme="dark" data-color="e81e4d" data-channelId="" data-rendered="false" class="cstrEmbed">
                 <a href="https://www.caster.fm">Shoutcast Hosting</a> 
@@ -200,11 +210,5 @@
         </div>
     </div>
 
-    <script>
-        // Ubacujemo direktno tvoj tačan fajl slike preko baze da ne zavisimo od eksternih linkova
-        const reader = new FileReader();
-        // Postavljamo sliku koju si poslao direktno u element
-        document.getElementById('logoPic').src = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/4QBaRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAAExAAIAAAAhAAAATgAAAAAAAABIAAAAAQAAAEgAAAABcGFnZUxvYWRlZAAAAABDaGF0R1BUMQAAAAgAAJAHAAQAAAAW=="; // (Zamenićemo čistim linkom ispod ako zatreba)
-    </script>
 </body>
 </html>
