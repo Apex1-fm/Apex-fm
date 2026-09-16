@@ -46,13 +46,6 @@
             mix-blend-mode: luminosity;
             filter: contrast(120%) brightness(95%);
         }
-        .logo-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle, transparent 40%, rgba(15, 24, 51, 0.8) 100%);
-            pointer-events: none;
-        }
         .genres {
             color: #b3c0ed;
             font-size: 0.9rem;
@@ -64,18 +57,25 @@
             border-top: 1px solid rgba(212, 175, 55, 0.2);
             padding-top: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
         }
-        /* Stilizacija za Caster vidžet da se uklopi u tamnu temu */
-        .cstrEmbed {
+        audio {
             width: 100%;
+            outline: none;
+            filter: sepia(20%) saturate(70%) hue-rotate(180deg); /* Blago toniranje plejera da prati temu */
+        }
+        .status {
+            font-size: 0.85rem;
+            color: #8fa3d4;
         }
     </style>
 </head>
 <body>
 
     <div class="main-container">
-        <!-- Logo sa stapanjem u teget tonove -->
+        <!-- Logo -->
         <div class="logo-wrapper">
             <img src="logo.jpg" alt="Apex Radio Logo" class="logo-img">
         </div>
@@ -83,12 +83,14 @@
         <!-- Žanrovi -->
         <div class="genres">Afro House &bull; Deep House &bull; Nu-Disco</div>
 
-        <!-- Caster.fm zvanični ugrađeni plejer -->
+        <!-- Direktan HTML5 Audio plejer (Nema preusmeravanja!) -->
         <div class="player-box">
-            <div data-type="podcastsPlayer" data-publicToken="3f0416fb-134e-4006-9b12-7945caca4eeb" data-theme="dark" data-color="d4af37" data-channelId="a273938e-f2b4-48c1-8815-5fa149f0d4bc" data-rendered="false" class="cstrEmbed">
-                <a href="https://www.caster.fm">Shoutcast Hosting</a>
-            </div>
-            <script src="https://cdn.cloud.caster.fm/widgets/embed.js"></script>
+            <div class="status">🔴 UŽIVO / 24/7 STREAM</div>
+            <!-- OVDE UNESI SVOJ DIREKTAN CASTER.FM STREAM LINK UMESTO OVOG PRIMERA -->
+            <audio controls preload="none">
+                <source src="https://stream.caster.fm:your_port/stream" type="audio/mpeg">
+                Tvoj pretraživač ne podržava audio plejer.
+            </audio>
         </div>
     </div>
 
