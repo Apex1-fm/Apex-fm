@@ -3,125 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Radio | 24/7 Afro & Deep House</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Apex Radio</title>
     <style>
-        * { box-sizing: border-box; }
+        :root {
+            --bg-navy: #0a0f1d;
+            --card-navy: #111a33;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-glow: rgba(212, 175, 55, 0.6);
+        }
+
         body {
             margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #0b1329, #152238);
-            color: #d4af37;
-            font-family: 'Poppins', sans-serif;
+            padding: 0;
+            background-color: var(--bg-navy);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-        }
-        .main-container {
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-        .station-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: 2px;
-            margin: 0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-        .genres {
-            color: #b3c0ed;
-            font-size: 0.95rem;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            font-weight: 600;
-            margin-top: -12px;
-        }
-        
-        /* Velika svetleća kartica */
-        .player-card {
-            background: #0f1833;
-            border-radius: 24px;
-            overflow: hidden;
-            /* Početni elegantni zlatni okvir i senka */
-            border: 2px solid rgba(212, 175, 55, 0.4);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            /* Glatka animacija za sjaj */
-            transition: all 0.4s ease;
+            overflow-x: hidden;
         }
 
-        /* Efekat kada predješ mišem (kad ga dodirneš) - kartica sija i izdiže se */
-        .player-card:hover {
-            border-color: #d4af37;
-            transform: translateY(-5px);
-            box-shadow: 0 0 35px rgba(212, 175, 55, 0.6), inset 0 0 15px rgba(212, 175, 55, 0.2);
-        }
-
-        .logo-wrapper {
+        .container {
+            background-color: var(--card-navy);
+            border: 2px solid var(--gold);
             border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-        }
-        .logo-img {
-            width: 100%;
-            max-height: 340px;
-            object-fit: cover;
-            display: block;
+            padding: 40px;
+            box-shadow: 0 0 25px rgba(10, 15, 29, 0.8), inset 0 0 15px rgba(212, 175, 55, 0.15);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            transition: all 0.3s ease;
         }
 
-        /* Donji deo sa Caster plejerom */
+        h1 {
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--gold-glow);
+        }
+
+        p {
+            color: #b0c4de;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        /* Stilizovanje plejera i interaktivnih elemenata sa zlatnim sjajem na klik */
+        .cstrEmbed, button, a {
+            transition: all 0.2s ease-in-out;
+        }
+
+        .cstrEmbed:active, button:active, a:active {
+            transform: scale(0.97);
+            box-shadow: 0 0 20px var(--gold), 0 0 40px var(--gold) !important;
+        }
+
+        /* Plejer kontejner */
         .player-box {
-            border-top: 1px solid rgba(212, 175, 55, 0.25);
-            padding-top: 15px;
-            display: flex;
-            justify-content: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(10, 15, 29, 0.6);
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
-        .cstrEmbed {
-            width: 100%;
+
+        .player-box:hover {
+            box-shadow: 0 0 15px var(--gold-glow);
+            border-color: var(--gold);
         }
-        .cstrEmbed a {
-            color: #d4af37;
-            font-size: 10px;
-            opacity: 0.4;
+
+        /* Linkovi ka Caster.fm u diskretnoj zlatnoj boji */
+        .footer-links {
+            margin-top: 20px;
+            font-size: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--gold);
             text-decoration: none;
+            opacity: 0.7;
+            margin: 0 5px;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-shadow: 0 0 8px var(--gold);
         }
     </style>
 </head>
 <body>
 
-    <div class="main-container">
-        <!-- Naziv i žanrovi -->
-        <div>
-            <h1 class="station-title">APEX RADIO</h1>
-            <div class="genres">Afro House &bull; Deep House &bull; Nu-Disco</div>
+    <div class="container">
+        <h1>APEX RADIO</h1>
+        <p>Urban, Deep House & Afro House Beats</p>
+
+        <div class="player-box">
+            <!-- Tvoj Caster.fm plejer kod -->
+            <div data-type="newStreamPlayer" data-publicToken="3f0416fb-134e-4006-9b12-7945caca4eeb" data-theme="dark" data-color="e81e4d" data-channelId="" data-rendered="false" class="cstrEmbed">
+                <a href="https://www.caster.fm">Shoutcast Hosting</a> 
+                <a href="https://www.caster.fm">Stream Hosting</a> 
+                <a href="https://www.caster.fm">Radio Server Hosting</a>
+            </div>
         </div>
 
-        <!-- Velika svetleća kartica sa logom i Caster plejerom -->
-        <div class="player-card">
-            <div class="logo-wrapper">
-                <img src="logo.jpg" alt="Apex Radio Logo" class="logo-img">
-            </div>
-            
-            <div class="player-box">
-                <!-- Tvoj originalni Caster plejer kod -->
-                <div data-type="newStreamPlayer" data-publicToken="3f0416fb-134e-4006-9b12-7945caca4eeb" data-theme="dark" data-color="e81e4d" data-channelId="" data-rendered="false" class="cstrEmbed">
-                    <a href="https://www.caster.fm">Shoutcast Hosting</a> 
-                    <a href="https://www.caster.fm">Stream Hosting</a> 
-                    <a href="https://www.caster.fm">Radio Server Hosting</a>
-                </div>
-                <script src="//cdn.cloud.caster.fm//widgets/embed.js"></script>
-            </div>
+        <div class="footer-links">
+            <a href="https://www.caster.fm" target="_blank">Shoutcast Hosting</a>
         </div>
     </div>
 
+    <!-- Skripta za Caster.fm plejer -->
+    <script src="//cdn.cloud.caster.fm//widgets/embed.js"></script>
 </body>
 </html>
