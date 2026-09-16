@@ -20,40 +20,43 @@
             text-align: center;
             background: #121c38;
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            border-radius: 16px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.6);
             border: 1px solid #d4af37;
-            max-width: 450px;
+            max-width: 480px;
             width: 90%;
         }
         h1 {
             margin-bottom: 10px;
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             letter-spacing: 2px;
         }
         p {
             color: #a0aec0;
             margin-bottom: 30px;
+            font-size: 1.1rem;
         }
-        .player-box {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-        .fallback-btn {
-            background: #d4af37;
+        .play-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #aa820a);
             color: #0b1329;
-            padding: 10px 20px;
-            border-radius: 6px;
+            padding: 16px 36px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.9rem;
-            transition: 0.3s;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
         }
-        .fallback-btn:hover {
-            background: #f3c643;
+        .play-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #f3c643, #d4af37);
+        }
+        .note {
+            font-size: 0.85rem;
+            color: #718096;
+            margin-top: 15px;
         }
     </style>
 </head>
@@ -62,17 +65,13 @@
         <h1>APEX RADIO</h1>
         <p>Afro House | Deep House | Nu-Disco</p>
         
-        <div class="player-box">
-            <!-- Novi Caster.fm vidžet -->
-            <div data-type="newStreamPlayer" data-publicToken="3f0416fb-134e-4006-9b12-7945caca4eeb" data-theme="light" data-color="e81e4d" data-channelId="" data-rendered="false" class="cstrEmbed">
-                <a href="https://www.caster.fm">Shoutcast Hosting</a> 
-                <a href="https://www.caster.fm">Stream Hosting</a> 
-                <a href="https://www.caster.fm">Radio Server Hosting</a>
-            </div>
-            <script src="https://cdn.cloud.caster.fm/widgets/embed.js"></script>
+        <!-- Veliko zlatno dugme koje direktno otvara i pokreće strim -->
+        <a href="https://apexradio.ismyradio.com" target="_blank" class="play-btn">
+            ▶ Pusti Radio Uživo
+        </a>
 
-            <!-- Rezervno dugme -->
-            <a href="https://apexradio.ismyradio.com" target="_blank" class="fallback-btn">Slušaj direktno na Casteru</a>
+        <div class="note">
+            Klikom na dugme otvara se plejer stanice u punom kvalitetu.
         </div>
     </div>
 </body>
