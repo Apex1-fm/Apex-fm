@@ -23,6 +23,8 @@
             border-radius: 12px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.5);
             border: 1px solid #d4af37;
+            max-width: 450px;
+            width: 90%;
         }
         h1 {
             margin-bottom: 10px;
@@ -33,9 +35,10 @@
             color: #a0aec0;
             margin-bottom: 30px;
         }
-        audio {
-            width: 100%;
-            outline: none;
+        .player-box {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
@@ -44,11 +47,15 @@
         <h1>APEX RADIO</h1>
         <p>Afro House | Deep House | Nu-Disco</p>
         
-        <!-- Ovde ide link tvog strima -->
-        <audio controls autoplay>
-            <source src=https://apexradio.ismyradio.com type="audio/mpeg">
-            Vaš pretraživač ne podržava audio plejer.
-        </audio>
+        <div class="player-box">
+            <!-- Caster.fm Vidžet Plejer -->
+            <div data-type="podcastsPlayer" data-publicToken="3f0416fb-134e-4006-9b12-7945caca4eeb" data-theme="light" data-color="e81e4d" data-channelId="a273938e-f2b4-48c1-8815-5fa149f0d4bc" data-rendered="false" class="cstrEmbed">
+                <a href="https://www.caster.fm">Shoutcast Hosting</a> 
+                <a href="https://www.caster.fm">Stream Hosting</a> 
+                <a href="https://www.caster.fm">Radio Server Hosting</a>
+            </div>
+            <script src="//cdn.cloud.caster.fm//widgets/embed.js"></script>
+        </div>
     </div>
 </body>
 </html>
