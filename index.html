@@ -3,141 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Radio | 24/7 Afro & Deep House</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { box-sizing: border-box; }
-        body {
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #0b1329, #152238);
-            color: #d4af37;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .main-container {
-            background: #0f1833;
-            padding: 30px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(212, 175, 55, 0.2);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            max-width: 420px;
-            width: 100%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
-        }
-        .logo-wrapper {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-        }
-        .logo-img {
-            width: 100%;
-            max-height: 240px;
-            object-fit: cover;
-            display: block;
-        }
-        .station-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: 1px;
-            margin: 0;
-        }
-        .genres {
-            color: #b3c0ed;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .player-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            padding-top: 20px;
-        }
-        .play-btn {
-            background: linear-gradient(135deg, #d4af37, #aa8c2c);
-            color: #0b1329;
-            border: none;
-            padding: 14px 32px;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .play-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.5);
-            background: linear-gradient(135deg, #e6c143, #c2a135);
-        }
-        .status-text {
-            font-size: 0.85rem;
-            color: #8da2db;
-            font-style: italic;
-        }
-    </style>
+    <title>Radio Plejer</title>
 </head>
 <body>
 
-    <div class="main-container">
-        <!-- Tvoj logo -->
-        <div class="logo-wrapper">
-            <img src="logo.jpg" alt="Apex Radio Logo" class="logo-img">
-        </div>
-
-        <!-- Naziv i Žanrovi -->
-        <div>
-            <h1 class="station-title">APEX RADIO</h1>
-            <div class="genres">Afro House &bull; Deep House &bull; Nu-Disco</div>
-        </div>
-
-        <!-- Stilizovani plejer sa dugmetom -->
-        <div class="player-section">
-            <div class="status-text" id="statusMsg">Klikni za slušanje uživo</div>
-            <button class="play-btn" id="playToggleBtn" onclick="togglePlay()">&#9658; Slušaj Uživo</button>
-            
-            <!-- Sakriveni audio element koji vuče strim sa Caster-a -->
-            <!-- Zameni link ispod tačnim linkom tvog Caster strima ako imaš direktni .mp3 / stream link -->
-            <audio id="radioStream" src="https://stream.cloud.caster.fm/a273938e-f2b4-48c1-8815-5fa149f0d4bc"></audio>
-        </div>
+    <!-- Caster.fm Plejer -->
+    <div data-type="newStreamPlayer" data-publicToken="3f0416fb-134e-4006-9b12-7945caca4eeb" data-theme="dark" data-color="e81e4d" data-channelId="" data-rendered="false" class="cstrEmbed">
+        <a href="https://www.caster.fm">Shoutcast Hosting</a> 
+        <a href="https://www.caster.fm">Stream Hosting</a> 
+        <a href="https://www.caster.fm">Radio Server Hosting</a>
     </div>
-
-    <script>
-        const audio = document.getElementById('radioStream');
-        const btn = document.getElementById('playToggleBtn');
-        const statusMsg = document.getElementById('statusMsg');
-
-        function togglePlay() {
-            if (audio.paused) {
-                audio.play().then(() => {
-                    btn.innerHTML = '&#10074;&#10074; Pauza';
-                    statusMsg.innerText = 'Uživo emitovanje u kursu...';
-                }).catch(err => {
-                    console.error("Greška pri pokretanju:", err);
-                    statusMsg.innerText = 'Trenutno nije dostupno';
-                });
-            } else {
-                audio.pause();
-                btn.innerHTML = '&#9658; Slušaj Uživo';
-                statusMsg.innerText = 'Emitovanje pauzirano';
-            }
-        }
-    </script>
+    <script src="//cdn.cloud.caster.fm//widgets/embed.js"></script>
 
 </body>
 </html>
