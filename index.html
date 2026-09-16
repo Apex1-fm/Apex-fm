@@ -10,82 +10,90 @@
 
         body {
             margin: 0;
-            padding: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: #030612;
+            padding: 20px;
+            min-height: 100vh;
+            background: #030612;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
         }
 
-        /* 1. LEOPARD JE SADA POZADINA PREKO CELOG EKRANA */
-        .bg-leopard {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-image: url('logo.jpg');
-            background-size: cover;
-            background-position: center;
-            /* Zatamnjujemo i dajemo teget-zlatni ton da ne bode oči, već da izgleda svetski */
-            filter: brightness(0.35) contrast(120%) saturate(80%);
+        /* 1. BOGATI POZADINSKI UKRASI I SVETLOSNI AUBIEVENT DA NEMA PRAZNINE OKOLO */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at center, #0d1b3a 0%, #030612 100%);
             z-index: 0;
-            transform: scale(1.05); /* Sprečava bele ivice */
-            animation: subtleZoom 20s ease-in-out infinite alternate;
-        }
-
-        @keyframes subtleZoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.08); }
-        }
-
-        /* 2. DODATNI SVETLOSNI PRELIV DA RAZBIJE MONOTONIJU */
-        .overlay-glow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: radial-gradient(circle at center, rgba(15, 34, 74, 0.4) 0%, rgba(3, 6, 18, 0.85) 100%);
-            z-index: 1;
             pointer-events: none;
         }
 
-        /* 3. GLAVNA KARTICA U SREDINI SA PLEJEROM */
+        /* 2. ZLATNE ZVEZDICE / ČESTICE U POZADINI OKO KARTICE */
+        .bg-particles {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: 
+                radial-gradient(2px 2px at 50px 80px, #d4af37, transparent),
+                radial-gradient(2px 2px at 200px 150px, #ffffff, transparent),
+                radial-gradient(1.5px 1.5px at 350px 300px, #d4af37, transparent),
+                radial-gradient(2px 2px at 500px 100px, #f3e5ab, transparent),
+                radial-gradient(2px 2px at 700px 250px, #ffffff, transparent),
+                radial-gradient(2.5px 2.5px at 850px 450px, #d4af37, transparent),
+                radial-gradient(2px 2px at 150px 550px, #ffffff, transparent),
+                radial-gradient(2px 2.5px at 400px 600px, #f3e5ab, transparent),
+                radial-gradient(2px 2px at 900px 150px, #d4af37, transparent);
+            background-repeat: repeat;
+            background-size: 600px 600px;
+            opacity: 0.5;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* 3. GLAVNA LUKSUZNA KARTICA SA MOĆNIM TROSTRUKIM OKVIROM */
         .main-container {
             position: relative;
-            z-index: 2;
-            background: rgba(8, 14, 30, 0.82);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 2px solid #d4af37;
-            border-radius: 30px;
-            padding: 35px 40px;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9), 0 0 35px rgba(212, 175, 55, 0.35), inset 0 0 20px rgba(212, 175, 55, 0.15);
+            z-index: 1;
+            background: linear-gradient(145deg, #0f1833, #070b19);
+            /* Trostruki svetleći okvir (da ne bude jednostavan) */
+            border: 3px solid #d4af37;
+            border-radius: 36px;
+            padding: 40px 35px;
+            box-shadow: 
+                0 0 0 6px rgba(11, 19, 41, 0.8),
+                0 0 0 8px rgba(212, 175, 55, 0.3),
+                0 25px 60px rgba(0, 0, 0, 0.95), 
+                0 0 50px rgba(212, 175, 55, 0.4), 
+                inset 0 0 30px rgba(212, 175, 55, 0.2);
             text-align: center;
-            max-width: 440px;
-            width: 90%;
+            max-width: 480px;
+            width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            transition: all 0.3s ease;
+            gap: 25px;
+            transition: all 0.4s ease;
         }
 
         .main-container:hover {
-            box-shadow: 0 0 70px rgba(0, 0, 0, 0.95), 0 0 50px rgba(212, 175, 55, 0.5), inset 0 0 25px rgba(212, 175, 55, 0.25);
+            box-shadow: 
+                0 0 0 6px rgba(11, 19, 41, 0.8),
+                0 0 0 9px rgba(212, 175, 55, 0.5),
+                0 30px 70px rgba(0, 0, 0, 0.95), 
+                0 0 70px rgba(212, 175, 55, 0.6), 
+                inset 0 0 40px rgba(212, 175, 55, 0.3);
             border-color: #f3e5ab;
         }
 
         .station-title {
             color: #d4af37;
             margin: 0;
-            font-size: 2.3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             letter-spacing: 3px;
             text-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
@@ -93,19 +101,48 @@
 
         .genres {
             color: #b3c0ed;
-            font-size: 0.85rem;
-            letter-spacing: 3px;
+            font-size: 0.9rem;
+            letter-spacing: 3.5px;
             text-transform: uppercase;
             font-weight: 600;
-            margin-top: -8px;
+            margin-top: -12px;
             opacity: 0.9;
         }
 
-        /* PLEJER SEKCIJA */
+        /* 4. OKVIR ZA LEOPARDA KOJI SIJA NA HOVER */
+        .logo-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), inset 0 0 15px rgba(212, 175, 55, 0.2);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .logo-wrapper:hover {
+            transform: scale(1.03);
+            border-color: #f3e5ab;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.9), inset 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .logo-img {
+            width: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            display: block;
+            transition: filter 0.4s ease;
+        }
+
+        .logo-wrapper:hover .logo-img {
+            filter: contrast(115%) brightness(105%);
+        }
+
+        /* PLEJER */
         .player-box {
-            background: rgba(3, 6, 18, 0.75);
-            border-radius: 14px;
-            padding: 14px;
+            background: rgba(3, 6, 18, 0.85);
+            border-radius: 16px;
+            padding: 16px;
             border: 1px solid rgba(212, 175, 55, 0.4);
             display: flex;
             justify-content: center;
@@ -115,7 +152,7 @@
 
         .player-box:hover {
             border-color: #d4af37;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
         }
 
         .cstrEmbed {
@@ -134,17 +171,22 @@
 </head>
 <body>
 
-    <!-- Pozadina je sad tvoj leopard preko celog ekrana -->
-    <div class="bg-leopard"></div>
-    <div class="overlay-glow"></div>
+    <!-- Pozadinske svetlosne teksture i čestice da popune prostor okolo -->
+    <div class="bg-particles"></div>
 
-    <!-- Centralni deo sa plejerom -->
+    <!-- Glavna stilizovana kartica sa leopardom unutra i moćnim okvirom -->
     <div class="main-container">
         <div>
             <h1 class="station-title">APEX RADIO</h1>
             <div class="genres">Afro House &bull; Deep House &bull; Nu-Disco</div>
         </div>
 
+        <!-- Tvoj leopard logo unutra -->
+        <div class="logo-wrapper">
+            <img src="logo.jpg" alt="Apex Radio Logo" class="logo-img">
+        </div>
+
+        <!-- Tvoj Caster plejer na dnu -->
         <div class="player-box">
             <div data-type="newStreamPlayer" data-publicToken="3f0416fb-134e-4006-9b12-7945caca4eeb" data-theme="dark" data-color="e81e4d" data-channelId="" data-rendered="false" class="cstrEmbed">
                 <a href="https://www.caster.fm">Shoutcast Hosting</a> 
