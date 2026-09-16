@@ -3,17 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio Plejer</title>
+    <title>Apex Radio | Plejer</title>
+    <style>
+        body {
+            background-color: #0b132b; /* Duboka teget / navy blue */
+            color: #d4af37; /* Elegantna zlatna */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 24px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 8px;
+        }
+        .player-container {
+            background-color: #1c2541; /* Za nijansu svetlija teget za karticu */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            border: 1px solid #d4af37; /* Zlatni ram */
+            text-align: center;
+        }
+        /* Malo prilagođavanje linkova da prate temu */
+        .cstrEmbed a {
+            color: #6fffe9;
+            font-size: 12px;
+            text-decoration: none;
+            display: none; /* Sakriva nepotrebne Caster linkove ako želiš čistiji izgled */
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Caster.fm Plejer -->
-    <div data-type="newStreamPlayer" data-publicToken="3f0416fb-134e-4006-9b12-7945caca4eeb" data-theme="dark" data-color="e81e4d" data-channelId="" data-rendered="false" class="cstrEmbed">
-        <a href="https://www.caster.fm">Shoutcast Hosting</a> 
-        <a href="https://www.caster.fm">Stream Hosting</a> 
-        <a href="https://www.caster.fm">Radio Server Hosting</a>
+    <div class="player-container">
+        <h1>Apex Radio</h1>
+        
+        <!-- Caster.fm Plejer -->
+        <div data-type="newStreamPlayer" data-publicToken="3f0416fb-134e-4006-9b12-7945caca4eeb" data-theme="dark" data-color="d4af37" data-channelId="" data-rendered="false" class="cstrEmbed">
+            <a href="https://www.caster.fm">Shoutcast Hosting</a> 
+            <a href="https://www.caster.fm">Stream Hosting</a> 
+            <a href="https://www.caster.fm">Radio Server Hosting</a>
+        </div>
+        <script src="//cdn.cloud.caster.fm//widgets/embed.js"></script>
     </div>
-    <script src="//cdn.cloud.caster.fm//widgets/embed.js"></script>
 
 </body>
 </html>
