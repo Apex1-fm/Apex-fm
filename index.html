@@ -7,11 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-navy: #070b19;
-            --card-navy: #0e1730;
+            --bg-navy: #050814;
+            --card-navy: #0b132b;
             --gold: #d4af37;
             --gold-light: #f3e5ab;
-            --gold-glow: rgba(212, 175, 55, 0.4);
+            --gold-glow: rgba(212, 175, 55, 0.6);
         }
 
         * { box-sizing: border-box; }
@@ -19,7 +19,7 @@
         body {
             margin: 0;
             padding: 20px;
-            background: radial-gradient(circle at center, #111e38 0%, var(--bg-navy) 100%);
+            background: radial-gradient(circle at center, #111d3a 0%, var(--bg-navy) 100%);
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
             display: flex;
@@ -30,18 +30,24 @@
             position: relative;
         }
 
-        /* Dodajemo pozadinski "wow" sjaj i efekte da ne bude prazno oko kartice */
+        /* Veliki svetleći krug u pozadini da popuni prostor oko kartice */
         body::before {
             content: '';
             position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.07) 0%, transparent 70%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 65%);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 0;
             pointer-events: none;
+            animation: pulseBg 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseBg {
+            0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
         }
 
         .main-container {
@@ -49,27 +55,27 @@
             z-index: 1;
             background: var(--card-navy);
             border: 2px solid var(--gold);
-            border-radius: 28px;
-            padding: 40px 35px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.25), inset 0 0 20px rgba(212, 175, 55, 0.1);
+            border-radius: 30px;
+            padding: 35px 30px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(212, 175, 55, 0.3), inset 0 0 25px rgba(212, 175, 55, 0.15);
             text-align: center;
             max-width: 480px;
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 22px;
             transition: all 0.4s ease;
         }
 
         .main-container:hover {
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 45px rgba(212, 175, 55, 0.45), inset 0 0 25px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.95), 0 0 60px rgba(212, 175, 55, 0.6), inset 0 0 30px rgba(212, 175, 55, 0.25);
             border-color: var(--gold-light);
         }
 
         .station-title {
             color: var(--gold);
             margin: 0;
-            font-size: 2.4rem;
+            font-size: 2.3rem;
             font-weight: 700;
             letter-spacing: 3px;
             text-shadow: 0 0 15px var(--gold-glow);
@@ -81,56 +87,65 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             font-weight: 600;
-            margin-top: -12px;
+            margin-top: -10px;
             opacity: 0.9;
         }
 
-        /* Okvir za logo da sija */
+        /* ODELJAK ZA LEOPARDA KOJI SIJA */
         .logo-wrapper {
-            border-radius: 18px;
-            overflow: hidden;
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+            /* Zlatni sjaj oko same slike leoparda da sija */
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5), inset 0 0 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .logo-wrapper:hover {
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.8), inset 0 0 25px rgba(212, 175, 55, 0.5);
+            transform: scale(1.02);
         }
 
         .logo-img {
             width: 100%;
-            max-height: 320px;
+            max-height: 330px;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s ease;
+            /* Blagi filter da leopard bude kontrastniji i oštriji u teget tonovima */
+            filter: contrast(110%) brightness(100%);
         }
 
-        .logo-wrapper:hover .logo-img {
-            transform: scale(1.03);
+        /* Svetleći ram preko leoparda koji daje "wow" efekat */
+        .logo-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.4);
+            pointer-events: none;
         }
 
-        /* Plejer sekcija sa zlatnim sjajem na dodir/klik */
+        /* Plejer sekcija */
         .player-box {
-            background: rgba(7, 11, 25, 0.6);
-            border-radius: 14px;
+            background: rgba(5, 8, 20, 0.7);
+            border-radius: 16px;
             padding: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.4);
             display: flex;
             justify-content: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
             transition: all 0.3s ease;
         }
 
         .player-box:hover {
             border-color: var(--gold);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
         }
 
         .cstrEmbed {
             width: 100%;
             display: flex;
             justify-content: center;
-        }
-
-        /* Efekat sijanja na klik (active) */
-        .cstrEmbed:active, .main-container:active {
-            box-shadow: 0 0 35px var(--gold), 0 0 60px var(--gold) !important;
         }
 
         .cstrEmbed a {
@@ -146,15 +161,15 @@
     <div class="main-container">
         <div>
             <h1 class="station-title">APEX RADIO</h1>
-            <div class="genres">Afro &bull; Deep House &bull; Nu-Disco</div>
+            <div class="genres">Afro House &bull; Deep House &bull; Nu-Disco</div>
         </div>
 
-        <!-- Tvoj logo sa efektima -->
+        <!-- Leopard koji sija i dominira -->
         <div class="logo-wrapper">
             <img src="logo.jpg" alt="Apex Radio Logo" class="logo-img">
         </div>
 
-        <!-- Tvoj Caster plejer ubačen pod konac -->
+        <!-- Caster plejer ispod -->
         <div class="player-box">
             <div data-type="newStreamPlayer" data-publicToken="3f0416fb-134e-4006-9b12-7945caca4eeb" data-theme="dark" data-color="e81e4d" data-channelId="" data-rendered="false" class="cstrEmbed">
                 <a href="https://www.caster.fm">Shoutcast Hosting</a> 
