@@ -22,7 +22,7 @@
             position: relative;
         }
 
-        /* 1. POZADINSKI SVETLOSNI AMBIJENT I ZLATNE ČESTICE */
+        /* Pozadinski svetlosni ambijent i zvezdice */
         body::before {
             content: '';
             position: fixed;
@@ -46,8 +46,7 @@
                 radial-gradient(2px 2px at 700px 250px, #ffffff, transparent),
                 radial-gradient(2.5px 2.5px at 850px 450px, #d4af37, transparent),
                 radial-gradient(2px 2px at 150px 550px, #ffffff, transparent),
-                radial-gradient(2px 2.5px at 400px 600px, #f3e5ab, transparent),
-                radial-gradient(2px 2px at 900px 150px, #d4af37, transparent);
+                radial-gradient(2px 2.5px at 400px 600px, #f3e5ab, transparent);
             background-repeat: repeat;
             background-size: 600px 600px;
             opacity: 0.5;
@@ -55,14 +54,14 @@
             pointer-events: none;
         }
 
-        /* 2. GLAVNA LUKSUZNA KARTICA SA UKRASNIM LISTOVIMA U UGLOVIMA */
+        /* Glavna kartica sa luksuznim unutrašnjim zlatnim ramom (ornament efekat) */
         .main-container {
             position: relative;
             z-index: 1;
             background: linear-gradient(145deg, #0f1833, #070b19);
             border: 3px solid #d4af37;
             border-radius: 36px;
-            padding: 45px 35px;
+            padding: 40px 35px;
             box-shadow: 
                 0 0 0 6px rgba(11, 19, 41, 0.8),
                 0 0 0 9px rgba(212, 175, 55, 0.3),
@@ -70,7 +69,7 @@
                 0 0 50px rgba(212, 175, 55, 0.4), 
                 inset 0 0 30px rgba(212, 175, 55, 0.2);
             text-align: center;
-            max-width: 500px;
+            max-width: 480px;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -78,45 +77,14 @@
             transition: all 0.4s ease;
         }
 
-        /* UKRASNI ZLATNI LISTOVI U 4 UGLA GLAVNOG FREJMA */
-        .main-container::before,
-        .main-container::after {
-            content: '🌿';
-            position: absolute;
-            font-size: 24px;
-            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.8));
-            opacity: 0.85;
-            z-index: 10;
-        }
-        /* Gornji levi ugao */
+        /* Čvrsti unutrašnji zlatni okvir koji stvara gravirani stil okvira */
         .main-container::before {
-            top: 12px;
-            left: 15px;
-            transform: rotate(-45deg);
-        }
-        /* Gornji desni ugao */
-        .main-container::after {
-            top: 12px;
-            right: 15px;
-            transform: scaleX(-1) rotate(-45deg);
-        }
-
-        /* Donji ukrasni listovi preko unutrašnjeg wrappera */
-        .bottom-leaves-decorator {
+            content: '';
             position: absolute;
-            bottom: 12px;
-            left: 18px;
-            right: 18px;
-            display: flex;
-            justify-content: space-between;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 28px;
             pointer-events: none;
-            font-size: 24px;
-            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.8));
-            opacity: 0.85;
-            z-index: 10;
-        }
-        .bottom-leaves-decorator span:last-child {
-            transform: scaleX(-1);
         }
 
         .main-container:hover {
@@ -148,7 +116,7 @@
             opacity: 0.9;
         }
 
-        /* 3. OKVIR ZA LEOPARDA SA LISTIĆIMA */
+        /* Okvir za leoparda */
         .logo-wrapper {
             position: relative;
             border-radius: 20px;
@@ -177,7 +145,7 @@
             filter: contrast(115%) brightness(105%);
         }
 
-        /* PLEJER */
+        /* Plejer */
         .player-box {
             background: rgba(3, 6, 18, 0.85);
             border-radius: 16px;
@@ -210,28 +178,18 @@
 </head>
 <body>
 
-    <!-- Pozadinske čestice -->
     <div class="bg-particles"></div>
 
-    <!-- Glavna kartica sa ukrasnim zlatnim listovima u uglovima -->
     <div class="main-container">
-        <!-- Donji ukrasni listovi -->
-        <div class="bottom-leaves-decorator">
-            <span>🌿</span>
-            <span>🌿</span>
-        </div>
-
         <div>
             <h1 class="station-title">APEX RADIO</h1>
             <div class="genres">Afro House &bull; Deep House &bull; Nu-Disco</div>
         </div>
 
-        <!-- Tvoj leopard logo unutra -->
         <div class="logo-wrapper">
             <img src="logo.jpg" alt="Apex Radio Logo" class="logo-img">
         </div>
 
-        <!-- Tvoj Caster plejer na dnu -->
         <div class="player-box">
             <div data-type="newStreamPlayer" data-publicToken="3f0416fb-134e-4006-9b12-7945caca4eeb" data-theme="dark" data-color="e81e4d" data-channelId="" data-rendered="false" class="cstrEmbed">
                 <a href="https://www.caster.fm">Shoutcast Hosting</a> 
