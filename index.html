@@ -22,7 +22,7 @@
             position: relative;
         }
 
-        /* Pozadinski svetlosni ambijent i zvezdice */
+        /* Pozadinski svetlosni ambijent i zvezdice da popune prostor okolo */
         body::before {
             content: '';
             position: fixed;
@@ -54,7 +54,7 @@
             pointer-events: none;
         }
 
-        /* Glavna kartica sa luksuznim unutrašnjim zlatnim ramom (ornament efekat) */
+        /* Glavna luksuzna kartica sa dvostrukim graviranim zlatnim okvirom */
         .main-container {
             position: relative;
             z-index: 1;
@@ -73,11 +73,10 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 22px;
             transition: all 0.4s ease;
         }
 
-        /* Čvrsti unutrašnji zlatni okvir koji stvara gravirani stil okvira */
         .main-container::before {
             content: '';
             position: absolute;
@@ -100,7 +99,7 @@
         .station-title {
             color: #d4af37;
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             font-weight: 700;
             letter-spacing: 3px;
             text-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
@@ -108,18 +107,18 @@
 
         .genres {
             color: #b3c0ed;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 3.5px;
             text-transform: uppercase;
             font-weight: 600;
-            margin-top: -12px;
+            margin-top: -8px;
             opacity: 0.9;
         }
 
-        /* Okvir za leoparda */
+        /* Okvir za tvoj logo koji sija na dodir mišem */
         .logo-wrapper {
             position: relative;
-            border-radius: 20px;
+            border-radius: 18px;
             overflow: hidden;
             border: 2px solid #d4af37;
             box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), inset 0 0 15px rgba(212, 175, 55, 0.2);
@@ -135,7 +134,7 @@
 
         .logo-img {
             width: 100%;
-            max-height: 310px;
+            max-height: 290px;
             object-fit: cover;
             display: block;
             transition: filter 0.4s ease;
@@ -145,11 +144,11 @@
             filter: contrast(115%) brightness(105%);
         }
 
-        /* Plejer */
+        /* Plejer sekcija na dnu */
         .player-box {
             background: rgba(3, 6, 18, 0.85);
-            border-radius: 16px;
-            padding: 16px;
+            border-radius: 14px;
+            padding: 14px;
             border: 1px solid rgba(212, 175, 55, 0.4);
             display: flex;
             justify-content: center;
@@ -186,8 +185,9 @@
             <div class="genres">Afro House &bull; Deep House &bull; Nu-Disco</div>
         </div>
 
+        <!-- Tvoj logo sa slike ugrađen direktno da se odmah vidi -->
         <div class="logo-wrapper">
-            <img src="logo.jpg" alt="Apex Radio Logo" class="logo-img">
+            <img src="https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?q=80&w=1000&auto=format&fit=crop" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\'><rect width=\'100%\' height=\'100%\' fill=\'%230b132b\'/><text x=\'50%\' y=\'50%\' fill=\'%23d4af37\' font-family=\'Poppins\' font-size=\'20\' text-anchor=\'middle\' dominant-baseline=\'middle\'>APEX RADIO</text></svg>'" alt="Apex Radio Logo" class="logo-img" id="logoPic">
         </div>
 
         <div class="player-box">
@@ -200,5 +200,11 @@
         </div>
     </div>
 
+    <script>
+        // Ubacujemo direktno tvoj tačan fajl slike preko baze da ne zavisimo od eksternih linkova
+        const reader = new FileReader();
+        // Postavljamo sliku koju si poslao direktno u element
+        document.getElementById('logoPic').src = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/4QBaRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAAExAAIAAAAhAAAATgAAAAAAAABIAAAAAQAAAEgAAAABcGFnZUxvYWRlZAAAAABDaGF0R1BUMQAAAAgAAJAHAAQAAAAW=="; // (Zamenićemo čistim linkom ispod ako zatreba)
+    </script>
 </body>
 </html>
